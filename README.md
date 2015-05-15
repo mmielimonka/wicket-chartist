@@ -1,2 +1,2 @@
 # wicket-chartist
-chartistjs wicket wrapper
+chartistjs wicket wrapper 
