@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.wicketchartist</groupId>
+  <artifactId>wicket-chartist-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <modules>  	
+  	<module>wicket-chartist-showcase</module>
+  	<module>../wicket-chartist</module>
+  </modules>
+  
+   <properties>
+	<!-- PLUGINS -->
+	<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+    <!-- JDK -->
+    <jdk.version>1.6</jdk.version>
+    <!-- WICKET -->
+  	<wicket.version>1.5.0</wicket.version>
+  	<!-- LOG4J -->
+  	<log4j.version>2.2</log4j.version>
+  </properties>
+  
+  <dependencyManagement>
+	  <dependencies>
+	  			<!-- WICKET DEPENDENCIES -->
+				<dependency>
+					<groupId>org.apache.wicket</groupId>
+					<artifactId>wicket-core</artifactId>
+					<version>${wicket.version}</version>
+				</dependency>
+				
+				<!-- LOG4J DEPENDENCIES -->
+				<dependency>
+	    			<groupId>org.apache.logging.log4j</groupId>
+	   				<artifactId>log4j-api</artifactId>
+	    			<version>${log4j.version}</version>
+	  			</dependency>
+	  			
+	 			<dependency>
+	    			<groupId>org.apache.logging.log4j</groupId>
+	    			<artifactId>log4j-core</artifactId>
+	   				<version>${log4j.version}</version>
+	  			</dependency>
+	  			
+	  </dependencies>
+  </dependencyManagement>
+  <build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<groupId>org.apache.maven.plugins</groupId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
+						<excludes>
+							<exclude>**/package-info.java</exclude>
+						</excludes>
+						<showDeprecation>true</showDeprecation>
+						<showWarnings>true</showWarnings>
+						<fork>false</fork>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

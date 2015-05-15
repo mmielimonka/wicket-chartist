@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>wicket-chartist</groupId>
+  <artifactId>wicket-chartist</artifactId>  
+	<parent>
+    <groupId>org.wicketchartist</groupId>
+    <artifactId>wicket-chartist-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
+  <properties>
+	  <jackson-core-asl.version>1.9.2</jackson-core-asl.version>
+	  <jackson-mapper-asl.version>1.9.2</jackson-mapper-asl.version> 
+  </properties>
+  
+  <dependencies>
+	  			<!-- WICKET DEPENDENCIES -->
+				<dependency>
+					<groupId>org.apache.wicket</groupId>
+					<artifactId>wicket-core</artifactId>
+				</dependency>
+				
+				<!-- LOG4J DEPENDENCIES -->
+				<dependency>
+	    			<groupId>org.apache.logging.log4j</groupId>
+	   				<artifactId>log4j-api</artifactId>
+	  			</dependency>
+	  			
+	 			<dependency>
+	    			<groupId>org.apache.logging.log4j</groupId>
+	    			<artifactId>log4j-core</artifactId>
+	  			</dependency>
+	  			
+	  			<dependency>
+					<groupId>org.codehaus.jackson</groupId>
+					<artifactId>jackson-mapper-asl</artifactId>			
+					<version>${jackson-mapper-asl.version}</version>		
+				</dependency>
+
+				<dependency>
+					<groupId>org.codehaus.jackson</groupId>
+					<artifactId>jackson-core-asl</artifactId>	
+					<version>${jackson-core-asl.version}</version>				
+				</dependency>
+	</dependencies>
+	
+	<build>
+        <plugins>
+            <plugin>
+		    <groupId>org.jasig.maven</groupId>
+		    <artifactId>sass-maven-plugin</artifactId>
+		    <version>1.1.1</version>
+		    <executions>
+			<execution> 
+			    <id>package</id>
+			    <phase>generate-sources</phase>
+			    <goals>
+				<goal>update-stylesheets</goal>
+			    </goals>
+			</execution>
+		    </executions>
+		    <configuration>
+			<resources>
+			    <resource>
+				<source>
+				    <directory>${basedir}/src/main/resources/org/wicketchartist/sass</directory>
+				</source>
+				<destination>${basedir}/src/main/resources/org/wicketchartist/css</destination>
+			    </resource>
+			</resources>
+			<useCompass>true</useCompass>
+		    </configuration>
+		</plugin>
+        </plugins>
+    </build>
+	
+</project>
