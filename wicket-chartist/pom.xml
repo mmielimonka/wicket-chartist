@@ -3,15 +3,37 @@
   <groupId>wicket-chartist</groupId>
   <artifactId>wicket-chartist</artifactId>  
 	<parent>
-    <groupId>org.wicketchartist</groupId>
-    <artifactId>wicket-chartist-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
+	    <groupId>org.wicketchartist</groupId>
+	    <artifactId>wicket-chartist-parent</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+  	</parent>
+  <name>Wicket Chartist</name>
+  <description>POM for wicket-chartist wrapper</description>
   
   <properties>
 	  <jackson-core-asl.version>1.9.2</jackson-core-asl.version>
 	  <jackson-mapper-asl.version>1.9.2</jackson-mapper-asl.version> 
   </properties>
+  
+  <scm>
+  	<url>https://github.com/mmielimonka/wicket-chartist.git</url>
+  	<connection>https://github.com/mmielimonka/wicket-chartist.git</connection>
+  </scm>
+  
+  <licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+  </licenses>
+  
+  <developers>
+  	<developer>
+  		<name>Michael Mielimonka</name>
+  		<email>mielimonkadevelop@gmail.com</email>
+  	</developer>
+  </developers>
   
   <dependencies>
 	  			<!-- WICKET DEPENDENCIES -->

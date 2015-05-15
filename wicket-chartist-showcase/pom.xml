@@ -9,8 +9,9 @@
   </parent>
   <artifactId>wicket-chartist-showcase</artifactId>
   <packaging>war</packaging>
-  <name>quickstart</name>
-  <description></description>
+ <name>Wicket Chartist showcase</name>
+ <description>POM for wicket-chartist-showcase</description>
+  
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -18,6 +19,19 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  
+  <scm>
+  	<url>https://github.com/mmielimonka/wicket-chartist.git</url>
+  	<connection>https://github.com/mmielimonka/wicket-chartist.git</connection>
+  </scm>
+  
+  <developers>
+  	<developer>
+  		<name>Michael Mielimonka</name>
+  		<email>mielimonkadevelop@gmail.com</email>
+  	</developer>
+  </developers>
+  
   <properties>
     <jetty.version>6.1.4</jetty.version>
   </properties>
