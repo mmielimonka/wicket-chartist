@@ -13,6 +13,7 @@ package org.wicketchartist.behavior;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.markup.html.IHeaderResponse;
+import org.apache.wicket.request.resource.CssResourceReference;
 import org.wicketchartist.css.ChartistCssReference;
 import org.wicketchartist.js.ChartingJavaScriptReference;
 import org.wicketchartist.js.ChartistJavaScriptReference;
@@ -32,11 +33,24 @@ public class ChartistBehavior extends Behavior {
     /** The Constant CHART_LIST_ID. */
     private static final String CHART_LIST_ID = "chartist-container";
 
+    /** The additional css reference. */
+    private CssResourceReference additionalCssReference;
+
     /**
      * Instantiates a new chartist behavior.
      */
     public ChartistBehavior() {
 
+    }
+
+    /**
+     * Instantiates a new chartist behavior.
+     *
+     * @param additionalCssReference
+     *            the additional css reference
+     */
+    public ChartistBehavior(CssResourceReference additionalCssReference) {
+        this.additionalCssReference = additionalCssReference;
     }
 
     /*
@@ -52,7 +66,13 @@ public class ChartistBehavior extends Behavior {
         response.renderJavaScriptReference(ChartingJavaScriptReference.INSTANCE);
         response.renderJavaScriptReference(ChartistTooltipJavaScriptReference.INSTANCE);
         response.renderJavaScriptReference(JqueryJavaScriptReference.INSTANCE);
-        response.renderCSSReference(ChartistCssReference.INSTANCE);
+
+        // used to enable css reference from own wicket project instead of using the standard one
+        if (this.additionalCssReference != null) {
+            response.renderCSSReference(additionalCssReference);
+        } else {
+            response.renderCSSReference(ChartistCssReference.INSTANCE);
+        }
         response.renderJavaScript(getJavaScript(), CHART_LIST_ID);
     }
 

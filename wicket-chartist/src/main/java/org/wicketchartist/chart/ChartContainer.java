@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.request.resource.CssResourceReference;
 import org.wicketchartist.behavior.ChartistBehavior;
 
 /**
@@ -36,6 +37,26 @@ public class ChartContainer implements Serializable {
     /** The current index of the JavaScript chart array. */
     private int currentId = 0;
 
+    /** The own css reference. */
+    private CssResourceReference ownCssReference;
+
+    /**
+     * Instantiates a new chart container. Standard constructor
+     */
+    public ChartContainer() {
+
+    }
+
+    /**
+     * Instantiates a new chart container.
+     *
+     * @param additionalCssReference
+     *            the additional css reference instead of using the standard one shipped in the war file
+     */
+    public ChartContainer(CssResourceReference additionalCssReference) {
+        this.ownCssReference = additionalCssReference;
+    }
+
     /**
      * Adds the chart.
      *
@@ -50,7 +71,11 @@ public class ChartContainer implements Serializable {
         }
 
         if (chartistBehavior == null) {
-            chartistBehavior = new ChartistBehavior();
+            if (ownCssReference != null) {
+                chartistBehavior = new ChartistBehavior(ownCssReference);
+            } else {
+                chartistBehavior = new ChartistBehavior();
+            }
             component.add(chartistBehavior);
         }
 
