@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.wicketchartist.behavior.ChartistBehavior;
 
@@ -65,7 +65,7 @@ public class ChartContainer implements Serializable {
      * @param component
      *            the component
      */
-    public void addChart(ChartistChart chart, WebPage component) {
+    public void addChart(ChartistChart chart, MarkupContainer component) {
         if (this.chartistCharts == null) {
             this.chartistCharts = new ArrayList<ChartistChart>();
         }
