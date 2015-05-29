@@ -61,6 +61,20 @@ function showLineLegend(id, data)
 	});
 }
 
+function updateLineLegend(id, data)
+{
+	var legend = $(id);
+	legend.empty();
+	showLineLegend(id, data);
+}
+
+function updatePieLegend(id, data)
+{
+	var legend = $(id);
+	legend.empty();
+	showPieLegend(id, data);
+}
+
 function showPieLegend(id, data)
 {
 	var legend = $(id);

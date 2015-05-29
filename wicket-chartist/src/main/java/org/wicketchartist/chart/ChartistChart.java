@@ -89,6 +89,7 @@ public abstract class ChartistChart extends WebMarkupContainer implements Serial
         if (this.chartId != null) {
             // update
             try {
+                onUpdate(target, newData);
                 target.getHeaderResponse().renderOnDomReadyJavaScript(
                         "update(" + this.chartId + ", " + this.chartData.toJson() + ");");
             } catch (JsonGenerationException e) {
@@ -98,7 +99,20 @@ public abstract class ChartistChart extends WebMarkupContainer implements Serial
             } catch (IOException e) {
                 LOGGER.debug("Error updating chart data", e);
             }
+
         }
+    }
+
+    /**
+     * On update.
+     *
+     * @param target
+     *            the target
+     * @param newData
+     *            the new data
+     */
+    protected void onUpdate(AjaxRequestTarget target, ChartData newData) {
+        // do nothing here
     }
 
     /**

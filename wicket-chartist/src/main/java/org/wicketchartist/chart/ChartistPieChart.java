@@ -10,7 +10,12 @@
  */
 package org.wicketchartist.chart;
 
+import java.io.IOException;
+
+import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.IHeaderResponse;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.wicketchartist.chart.data.ChartData;
 import org.wicketchartist.chart.data.ChartOptions;
 import org.wicketchartist.chart.data.ChartType;
@@ -64,6 +69,22 @@ public class ChartistPieChart extends ChartistChart {
 
         if (showLegend == true && legendId != null) {
             response.renderOnDomReadyJavaScript("showPieLegend(" + legendId + "," + chartData + ")");
+        }
+    }
+
+    @Override
+    protected void onUpdate(AjaxRequestTarget target, ChartData newData) {
+        super.onUpdate(target, newData);
+
+        // update legend
+        if (showLegend == true && legendId != null) {
+            try {
+                target.getHeaderResponse().renderOnDomReadyJavaScript(
+                        "updatePieLegend(" + legendId + "," + newData.toJson() + ")");
+            } catch (JsonGenerationException e) {
+            } catch (JsonMappingException e) {
+            } catch (IOException e) {
+            }
         }
     }
 
